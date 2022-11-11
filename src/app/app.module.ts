@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
@@ -26,6 +27,8 @@ import {BodyModule} from "./body/body.module";
     HeaderModule,
     MatIconModule,
     BodyModule,
+    AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
