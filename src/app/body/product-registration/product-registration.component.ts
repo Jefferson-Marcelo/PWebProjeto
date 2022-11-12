@@ -26,4 +26,7 @@ export class ProductRegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  inserirProduct() {
+
+  }
 }

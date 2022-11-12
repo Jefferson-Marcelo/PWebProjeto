@@ -5,6 +5,7 @@ import { NavigatorComponent } from './navigator/navigator.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatListModule} from "@angular/material/list";
 import {MaterialExampleModule} from "../../material.module";
+import {AppRoutingModule} from "../app-routing.module";
 
 
 
@@ -17,11 +18,12 @@ import {MaterialExampleModule} from "../../material.module";
     MenuComponent,
     NavigatorComponent
   ],
-  imports: [
-    CommonModule,
-    MatMenuModule,
-    MatListModule,
-    MaterialExampleModule
-  ]
+    imports: [
+        CommonModule,
+        MatMenuModule,
+        MatListModule,
+        MaterialExampleModule,
+        AppRoutingModule
+    ]
 })
 export class HeaderModule { }
