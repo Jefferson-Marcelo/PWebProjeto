@@ -1,4 +1,6 @@
-<div id="directionline">
+<div fxLayout="row" fxLayoutAlign="space-around center" id="directionline">
+
+
 <button mat-button [matMenuTriggerFor]="belowMenu">Início</button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
   <button mat-menu-item>Item 1</button>
@@ -38,10 +40,9 @@
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="afterMenu">Cadastro</button>
-  <mat-menu #afterMenu="matMenu" yPosition="below">
-    <button mat-menu-item [routerLink]="['cadastrarproduto']">Cadastro Produto</button>
-    <button mat-menu-item>Item 2</button>
+<button mat-button [matMenuTriggerFor]="belowMenu">Cadastro</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="['/cadastrarproduto']">Cadastro Produto</button>
   </mat-menu>
 
   <!--
@@ -54,3 +55,4 @@
 !-->
 
 </div>
+

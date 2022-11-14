@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManipulationSystemComponent } from './manipulation-system.component';
+import { ShowBodyComponent } from './show-body.component';
 
-describe('ManipulationSystemComponent', () => {
-  let component: ManipulationSystemComponent;
-  let fixture: ComponentFixture<ManipulationSystemComponent>;
+describe('ShowBodyComponent', () => {
+  let component: ShowBodyComponent;
+  let fixture: ComponentFixture<ShowBodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManipulationSystemComponent ]
+      declarations: [ ShowBodyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManipulationSystemComponent);
+    fixture = TestBed.createComponent(ShowBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

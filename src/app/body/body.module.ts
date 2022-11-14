@@ -4,10 +4,14 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductComponent } from './product/product.component';
-
 import {MaterialExampleModule} from "../../material.module";
 import {FormsModule} from "@angular/forms";
-import { ManipulationSystemComponent } from './manipulation-system/manipulation-system.component';
+import {HeaderModule} from "../header/header.module";
+import { ShowBodyComponent } from './show-body/show-body.component';
+import {FlexModule} from "@angular/flex-layout";
+import { FileUploadModule } from 'ng2-file-upload';
+
+
 
 
 
@@ -15,20 +19,28 @@ import { ManipulationSystemComponent } from './manipulation-system/manipulation-
 @NgModule({
     declarations: [
         HeaderComponent,
-        ManipulationSystemComponent,
         ProductComponent,
         ProductRegistrationComponent,
         SidebarComponent,
+        ShowBodyComponent,
+
     ],
   exports: [
     HeaderComponent,
     SidebarComponent,
-    ProductComponent
+    ProductComponent,
+    ProductRegistrationComponent,
+    ShowBodyComponent
   ],
   imports: [
     CommonModule,
     MaterialExampleModule,
     FormsModule,
+    HeaderModule,
+    FlexModule,
+    FileUploadModule
+
+
 
   ]
 })
