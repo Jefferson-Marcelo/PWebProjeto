@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" id="directionline">
 
-
+<!--
 <button mat-button [matMenuTriggerFor]="belowMenu">Início</button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
   <button mat-menu-item>Item 1</button>
@@ -27,24 +27,33 @@
 </mat-menu>
 
 
-<button mat-button [matMenuTriggerFor]="beforeMenu">Rastreio</button>
+<button mat-button [matMenuTriggerFor]="belowMenu">Rastreio</button>
 <mat-menu #beforeMenu="matMenu" yPosition="below">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
 
-<button mat-button [matMenuTriggerFor]="afterMenu">Cupom de Desconto</button>
+<button mat-button [matMenuTriggerFor]="belowMenu">Cupom de Desconto</button>
 <mat-menu #afterMenu="matMenu" yPosition="below">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
+
 <button mat-button [matMenuTriggerFor]="belowMenu">Cadastro</button>
   <mat-menu #belowMenu="matMenu" yPosition="below">
     <button mat-menu-item [routerLink]="['/cadastrarproduto']">Cadastro Produto</button>
   </mat-menu>
+-->
 
+<button mat-menu-item [routerLink]="['/']">Inicio</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Brasileirão</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Libertadores</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Europa</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Rastreio</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Cupom de Desconto</button>
+<button mat-menu-item [routerLink]="['/cadastrarproduto']">Cadastro Produto</button>
   <!--
   <mat-menu #menu="matMenu">
     <button mat-menu-item [routerLink]="['cadastrarproduto']">Cadastro Produto</button>
