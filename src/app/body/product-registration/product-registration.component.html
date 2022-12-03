@@ -1,20 +1,32 @@
 
-<div fxLayout="column">
+<div fxLayout="column" fxLayoutAlign="space-around center" id=formulario>
 
-<mat-form-field appearance="fill" class="mat-form-simple">
-  <mat-label>Imagem</mat-label>
-  <input matInput [(ngModel)]="product.parcelado" placeholder="Digite sua idade">
-</mat-form-field>
 
-<mat-form-field appearance="fill" class="mat-form-simple">
-  <mat-label>Nome do time</mat-label>
-  <input matInput [(ngModel)]="product.nome" placeholder="Digite o nome do time">
-</mat-form-field>
+  <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+    <mat-label>Both a label and a placeholder</mat-label>
+    <input matInput placeholder="Simple placeholder">
+  </mat-form-field>
 
-<mat-form-field appearance="fill" class="mat-form-simple">
-  <mat-label>Valor da Camisa</mat-label>
-  <input matInput [(ngModel)]="product.nome" placeholder="Digite o nome do time">
-</mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Placeholder">
+  </mat-form-field>
+
+
+
+
+  <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+    </mat-form-field>
+
 
 <input type="file" ng2FileSelect [uploader]="uploader" multiple/>
 

@@ -10,6 +10,7 @@ import {HeaderModule} from "../header/header.module";
 import { ShowBodyComponent } from './show-body/show-body.component';
 import {FlexModule} from "@angular/flex-layout";
 import { FileUploadModule } from 'ng2-file-upload';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
@@ -38,7 +39,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     HeaderModule,
     FlexModule,
-    FileUploadModule
+    FileUploadModule,
+    MatFormFieldModule
 
 
 
