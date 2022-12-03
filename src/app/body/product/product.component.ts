@@ -10,12 +10,14 @@ import {ProductService} from "../../shared/services/product.service";
 })
 export class ProductComponent implements OnInit {
 
-  products: Array<Product>;
+  products: Array<Product> | undefined;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.listar()
+    this.productService.listar().subscribe(
+      products => this.products = products
+    );
   }
 
 }
