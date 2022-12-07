@@ -23,7 +23,15 @@ export class ProductService {
     return this.httpClient.post<Product>(this.URL_PRODUCTS, product);
   }
 
-  excluirProduct(id: number): Observable<object>{
+  excluirProduct(id: string): Observable<object>{
     return this.httpClient.delete(`${this.URL_PRODUCTS}/${id}`)
+  }
+
+  pesquisarPorId(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.URL_PRODUCTS}/${id}`);
+  }
+
+  atualizar(product: Product): Observable<Product> {
+    return this.httpClient.put<Product>(`${this.URL_PRODUCTS}/${product.id}`, product);
   }
 }

@@ -1,39 +1,43 @@
+<app-show-header></app-show-header>
 
 <div fxLayout="column" fxLayoutAlign="space-around center" id=formulario>
 
-
   <mat-form-field appearance= "fill">
-    <mat-label>Both a label and a placeholder</mat-label>
-    <input matInput placeholder="Simple placeholder">
+    <mat-label>Id</mat-label>
+    <input matInput [(ngModel)]="productAtual.id"  placeholder="Id">
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="productAtual.nome" placeholder="Nome">
   </mat-form-field>
 
 
-  <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
+  <mat-form-field appearance="fill">
+      <mat-label>Valor</mat-label>
+      <input matInput [(ngModel)]="productAtual.valor" placeholder="Valor">
     </mat-form-field>
-
-
-
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-    </mat-form-field>
-
 
 <input type="file" ng2FileSelect [uploader]="uploader" multiple/>
 
-<input ng2FileSelect type="file" accept=".xml" [uploader]="uploader"/>
 
-<button mat-raised-button mat-icon-button color="primary" (click)="inserirProduct()">
-  <mat-icon>
+
+<button mat-raised-button mat-icon-button color="primary" (click)="inserirOuAtualizarProduct()">
+  <mat-icon *ngIf="inserindo">
     add
+  </mat-icon>
+  <mat-icon *ngIf="!inserindo">
+    edit
   </mat-icon>
 </button><br>
 
 </div>
+
+<!--
+<input ng2FileSelect type="file" accept=".xml" [uploader]="uploader"/>
+
+<mat-form-field appearance="fill">
+  <mat-label>Outline form field</mat-label>
+  <input matInput placeholder="Placeholder">
+</mat-form-field>
+-->

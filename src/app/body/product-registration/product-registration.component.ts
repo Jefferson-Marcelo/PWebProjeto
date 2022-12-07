@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../shared/model/product";
 import { FileUploader } from 'ng2-file-upload';
-import {FloatLabelType} from "@angular/material/form-field";
-import {FormBuilder, FormControl } from "@angular/forms";
+
+import {FormBuilder } from "@angular/forms";
 import {ProductService} from "../../shared/services/product.service";
 import {Observable} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-registration',
@@ -12,7 +13,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./product-registration.component.scss']
 })
 export class ProductRegistrationComponent implements OnInit {
-
+/*
   product: Product;
   products!: Array<Product>;
 
@@ -45,6 +46,53 @@ export class ProductRegistrationComponent implements OnInit {
     }
     )
 
+  }
+*/
+
+  productAtual: Product;
+
+  inserindo = true;
+  nomeBotao = 'Inserir';
+
+  constructor(private rotaAtual: ActivatedRoute, private productService: ProductService,
+              private roteador: Router, _formBuilder: FormBuilder) {
+    this.productAtual = new Product('', '', '',0 , 0);
+    if (rotaAtual.snapshot.paramMap.has('id')) {
+      const idParaEdicao = Number(rotaAtual.snapshot.paramMap.get('id'));
+      if (idParaEdicao) {
+        this.inserindo = false;
+        this.nomeBotao = 'Atualizar';
+        const Encontrado = this.productService.pesquisarPorId(idParaEdicao).subscribe(
+          productEncontrado => this.productAtual = productEncontrado
+        );
+      }
+    }
+
+  }
+  uploader: FileUploader = new FileUploader({ url: "api/your_upload", removeAfterUpload: false, autoUpload: true });
+
+  ngOnInit() {
+  }
+
+  inserirOuAtualizarProduct() {
+    if (this.inserindo) {
+      this.productService.inserirProduct(this.productAtual).subscribe(
+        productInserido => {
+          console.log('Produto cadastrado com sucesso!')
+          this.roteador.navigate([''])}
+      );
+      this.productAtual = new Product('', '', '', 0,0);
+    } else {
+      this.productService.atualizar(this.productAtual).subscribe(
+        productAtualizado => {
+          console.log('Produto atualizado com sucesso!');
+          this.roteador.navigate([''])}
+      );
+    }
+  }
+
+  atualizaNome(novoNome: string) {
+    this.productAtual.nome = novoNome;
   }
   }
 

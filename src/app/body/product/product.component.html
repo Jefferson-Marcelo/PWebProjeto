@@ -1,9 +1,11 @@
 
 
-
 <mat-card fxLayout="column" fxLayoutAlign="center center"  class="example-card">
 
-  <img mat-card-image src="assets/Flamengo.png" alt="">
+  <mat-card-title>
+
+    <img mat-card-image src="assets/Flamengo.png" alt="">
+  </mat-card-title>
   <mat-card-content>
     <p>
       Camisa Flamengo 2 | 21/22 Masc
@@ -19,3 +21,26 @@
     <button mat-button>Comprar</button>
   </mat-card-actions>
 </mat-card>
+
+
+<div fxLayout="row wrap" fxLayout.lt-md="column">
+  <mat-card fxFlex="20" *ngFor="let product of products" class="card-usuario">
+      <mat-card-title>
+        {{product.imagem}}
+      </mat-card-title>
+    <mat-card-content>
+     <p> {{product.nome}}</p>
+     <p> {{product.valor}} </p>
+     <p> {{product.parcelado}} </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button (click)="removerProduct(product)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button [routerLink]="['/cadastrarproduto', product.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
