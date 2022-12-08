@@ -6,6 +6,7 @@ import {FormBuilder } from "@angular/forms";
 import {ProductService} from "../../shared/services/product.service";
 import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProductFirestoreService} from "../../shared/services/product-firestore.service";
 
 @Component({
   selector: 'app-product-registration',
@@ -54,15 +55,15 @@ export class ProductRegistrationComponent implements OnInit {
   inserindo = true;
   nomeBotao = 'Inserir';
 
-  constructor(private rotaAtual: ActivatedRoute, private productService: ProductService,
+  constructor(private rotaAtual: ActivatedRoute, private productFirestoreService: ProductFirestoreService,
               private roteador: Router, _formBuilder: FormBuilder) {
     this.productAtual = new Product('', '', '',0 , 0);
     if (rotaAtual.snapshot.paramMap.has('id')) {
-      const idParaEdicao = Number(rotaAtual.snapshot.paramMap.get('id'));
+      const idParaEdicao = (rotaAtual.snapshot.paramMap.get('id'));
       if (idParaEdicao) {
         this.inserindo = false;
         this.nomeBotao = 'Atualizar';
-        const Encontrado = this.productService.pesquisarPorId(idParaEdicao).subscribe(
+        const Encontrado = this.productFirestoreService.pesquisarPorId(idParaEdicao).subscribe(
           productEncontrado => this.productAtual = productEncontrado
         );
       }
@@ -76,14 +77,14 @@ export class ProductRegistrationComponent implements OnInit {
 
   inserirOuAtualizarProduct() {
     if (this.inserindo) {
-      this.productService.inserirProduct(this.productAtual).subscribe(
+      this.productFirestoreService.inserir(this.productAtual).subscribe(
         productInserido => {
           console.log('Produto cadastrado com sucesso!')
           this.roteador.navigate([''])}
       );
       this.productAtual = new Product('', '', '', 0,0);
     } else {
-      this.productService.atualizar(this.productAtual).subscribe(
+      this.productFirestoreService.atualizar(this.productAtual).subscribe(
         productAtualizado => {
           console.log('Produto atualizado com sucesso!');
           this.roteador.navigate([''])}

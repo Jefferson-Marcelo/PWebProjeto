@@ -3,6 +3,7 @@ import {PRODUCTS} from "../../shared/model/PRODUCTS";
 import {Product} from "../../shared/model/product";
 import {ProductService} from "../../shared/services/product.service";
 import {Router} from "@angular/router";
+import {ProductFirestoreService} from "../../shared/services/product-firestore.service";
 
 @Component({
   selector: 'app-product',
@@ -14,12 +15,12 @@ export class ProductComponent implements OnInit {
   products: Product[];
 
 
-  constructor(private roteador: Router, private productService: ProductService) {
+  constructor(private roteador: Router, private productFirestoreService: ProductFirestoreService) {
     this.products = new Array<Product>()
   }
 
   ngOnInit(): void {
-    this.productService.listar().subscribe(
+    this.productFirestoreService.listar().subscribe(
       products => this.products = products
     );
   }
@@ -30,7 +31,7 @@ export class ProductComponent implements OnInit {
 
 
   removerProduct(productARemover: Product): void {
-    this.productService.excluirProduct(productARemover.id).subscribe(
+    this.productFirestoreService.remover(productARemover.id).subscribe(
       removido => {
         console.log(removido);
         const indxUsuario = this.products.findIndex(p => p.id === productARemover.id);

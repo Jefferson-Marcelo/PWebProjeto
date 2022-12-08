@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HeaderModule} from "./header/header.module";
 import {MatIconModule} from "@angular/material/icon";
 import {BodyModule} from "./body/body.module";
+import {FirestoreModule} from "./firestore/firestore.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,8 +28,8 @@ import {BodyModule} from "./body/body.module";
     HeaderModule,
     MatIconModule,
     BodyModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

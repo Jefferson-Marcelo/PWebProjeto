@@ -23,6 +23,10 @@
 </mat-card>
 
 
+<p>
+  <mat-icon [matBadge]="products.length" matBadgeColor="primary">group</mat-icon>
+</p>
+
 <div fxLayout="row wrap" fxLayout.lt-md="column">
   <mat-card fxFlex="20" *ngFor="let product of products" class="card-usuario">
       <mat-card-title>
