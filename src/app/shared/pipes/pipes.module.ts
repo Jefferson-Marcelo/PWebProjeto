@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ParcelaPipe} from "./parcela.pipe";
+import { CifraoPipe } from './cifrao.pipe';
 
 
 
 @NgModule({
-  declarations: [ParcelaPipe],
+  declarations: [ParcelaPipe, CifraoPipe],
   imports: [
     CommonModule
   ],
-  exports: [ParcelaPipe]
+  exports: [ParcelaPipe, CifraoPipe]
 })
 export class PipesModule { }

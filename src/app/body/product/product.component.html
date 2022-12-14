@@ -34,8 +34,8 @@
       </mat-card-title>
     <mat-card-content>
      <p> {{product.nome}}</p>
-     <p> {{product.valor}} ou </p>
-     <p> <span>{{product.parcelado}}</span> {{product.parcelado | parcela : product.valor}} </p>
+     <p> {{product.valor | cifrao}} ou </p>
+     <p> <span>{{product.parcelado}}</span> {{product.parcelado | parcela : product.valor }} </p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-icon-button (click)="removerProduct(product)">
