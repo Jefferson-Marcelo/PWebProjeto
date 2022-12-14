@@ -48,6 +48,68 @@ export class ProductRegistrationComponent implements OnInit {
     )
 
   }
+
+
+  sellersPermitFile: any;
+  //base64s
+  sellersPermitString!: string;
+  //json
+  finalJson = {};
+
+  currentId: number = 0;
+
+  addPictures() {
+    this.finalJson = {
+      "sellersPermitFile": this.sellersPermitString,
+    }
+  }
+  public picked(event: Event, field: number) {
+    this.currentId = field;
+    // @ts-ignore
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      if (field == 1) {
+        this.sellersPermitFile = file;
+        this.handleInputChange(file); //turn into base64
+      }
+    }
+    else {
+      alert("No file selected");
+    }
+  }
+
+  handleInputChange(files: File) {
+    let file = files;
+    let pattern = /image- *  /;
+    let reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onloadend = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e: { target: any; }) {
+    let reader = e.target;
+    let base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+    //this.imageSrc = base64result;
+    let id = this.currentId;
+    switch (id) {
+      case 1:
+        this.sellersPermitString = base64result;
+        break;
+    }
+    this.log();
+  }
+
+  log() {
+    // for debug
+    console.log('1', this.sellersPermitString);
+
+  }
+
+  //uploader: FileUploader = new FileUploader({ url: "api/your_upload", removeAfterUpload: false, autoUpload: true })
 */
 
   productAtual: Product;
@@ -70,18 +132,19 @@ export class ProductRegistrationComponent implements OnInit {
     }
 
   }
-  uploader: FileUploader = new FileUploader({ url: "api/your_upload", removeAfterUpload: false, autoUpload: true });
+
 
   ngOnInit() {
   }
-
   inserirOuAtualizarProduct() {
     if (this.inserindo) {
       this.productFirestoreService.inserir(this.productAtual).subscribe(
         productInserido => {
           console.log('Produto cadastrado com sucesso!')
-          this.roteador.navigate([''])}
+          this.roteador.navigate([''])
+          }
       );
+
       this.productAtual = new Product('', '', '', 0,0);
     } else {
       this.productFirestoreService.atualizar(this.productAtual).subscribe(

@@ -8,10 +8,11 @@ import {MaterialExampleModule} from "../../material.module";
 import {FormsModule} from "@angular/forms";
 import {HeaderModule} from "../header/header.module";
 import { ShowBodyComponent } from './show-body/show-body.component';
-import {FlexModule} from "@angular/flex-layout";
+import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
 import { FileUploadModule } from 'ng2-file-upload';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {AppRoutingModule} from "../app-routing.module";
+import {PipesModule} from "../shared/pipes/pipes.module";
 
 
 
@@ -41,10 +42,10 @@ import {AppRoutingModule} from "../app-routing.module";
     HeaderModule,
     FlexModule,
     FileUploadModule,
+    AppRoutingModule,
+    PipesModule,
     MatFormFieldModule,
-    AppRoutingModule
-
-
+    FlexLayoutModule,
   ]
 })
 export class BodyModule { }

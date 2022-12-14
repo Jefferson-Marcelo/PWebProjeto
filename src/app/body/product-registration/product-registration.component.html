@@ -1,26 +1,22 @@
 <app-show-header></app-show-header>
 
-<div fxLayout="column" fxLayoutAlign="space-around center" id=formulario>
+<div fxLayout="column" fxLayoutAlign="space-around center">
 
-  <mat-form-field appearance= "fill">
-    <mat-label>Id</mat-label>
-    <input matInput [(ngModel)]="productAtual.id"  placeholder="Id">
-  </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill" floatLabel="always">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="productAtual.nome" placeholder="Nome">
+    <input matInput [(ngModel)]="productAtual.nome" >
   </mat-form-field>
 
+  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center"  appearance="fill" floatLabel="always" >
+    Valor: <input matInput  [(ngModel)]="productAtual.valor" placeholder="Valor">
+  </mat-form-field>
 
-  <mat-form-field appearance="fill">
-      <mat-label>Valor</mat-label>
-      <input matInput [(ngModel)]="productAtual.valor" placeholder="Valor">
+  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill">
+     Parcela: <input matInput [(ngModel)]="productAtual.parcelado" placeholder="Parcela">
     </mat-form-field>
 
-<input type="file" ng2FileSelect [uploader]="uploader" multiple/>
-
-
+<input type="file" [(ngModel)]="productAtual.imagem" multiple/>
 
 <button mat-raised-button mat-icon-button color="primary" (click)="inserirOuAtualizarProduct()">
   <mat-icon *ngIf="inserindo">
@@ -40,4 +36,12 @@
   <mat-label>Outline form field</mat-label>
   <input matInput placeholder="Placeholder">
 </mat-form-field>
+
+<button class="butoncus_sig" id="dnext" (click)="addPictures()">Submit</button>
+
+(change)="picked($event,1)"
+
+
+<span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
 -->

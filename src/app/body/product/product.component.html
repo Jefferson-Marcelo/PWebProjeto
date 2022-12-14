@@ -24,18 +24,18 @@
 
 
 <p>
-  <mat-icon [matBadge]="products.length" matBadgeColor="primary">group</mat-icon>
+  <mat-icon [matBadge]="products.length" matBadgeColor="primary"></mat-icon>
 </p>
 
 <div fxLayout="row wrap" fxLayout.lt-md="column">
   <mat-card fxFlex="20" *ngFor="let product of products" class="card-usuario">
       <mat-card-title>
-        {{product.imagem}}
+        <img src="{{product.imagem}}">
       </mat-card-title>
     <mat-card-content>
      <p> {{product.nome}}</p>
-     <p> {{product.valor}} </p>
-     <p> {{product.parcelado}} </p>
+     <p> {{product.valor}} ou </p>
+     <p> <span>{{product.parcelado}}</span> {{product.parcelado | parcela : product.valor}} </p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-icon-button (click)="removerProduct(product)">
