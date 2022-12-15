@@ -15,10 +15,6 @@ import {AppRoutingModule} from "../app-routing.module";
 import {PipesModule} from "../shared/pipes/pipes.module";
 
 
-
-
-
-
 @NgModule({
     declarations: [
         HeaderComponent,
@@ -44,8 +40,7 @@ import {PipesModule} from "../shared/pipes/pipes.module";
     FileUploadModule,
     AppRoutingModule,
     PipesModule,
-    MatFormFieldModule,
-    FlexLayoutModule,
+    
   ]
 })
 export class BodyModule { }

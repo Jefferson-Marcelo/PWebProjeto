@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 export class ProductService {
   //products: Array<Product>;
 
-  URL_PRODUCTS = 'http://localhost:4200/cadastrarproduto'
+  URL_PRODUCTS = 'http://localhost:8080/'
 
   constructor(private httpClient: HttpClient) {
   }

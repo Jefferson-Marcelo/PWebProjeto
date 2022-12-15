@@ -43,5 +43,10 @@ atualizar(product: Product): Observable<void>{
   return  from(this.colecaoProducts.doc(product.id).update(Object.assign({}, product)))
 }
 
+carregarImagem(product: Product): Observable<object>{
+    // @ts-ignore
+    delete product.id;
+    return from(this.colecaoProducts.add(Object.assign({}, product)));
+  }
 
 }

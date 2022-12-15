@@ -2,11 +2,6 @@
 
 <div fxLayout="column" fxLayoutAlign="space-around center">
 
-  <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
-
   <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill" floatLabel="always">
     <mat-label>Nome</mat-label>
     <input matInput [(ngModel)]="productAtual.nome" >
@@ -20,7 +15,11 @@
      Parcela: <input matInput [(ngModel)]="productAtual.parcelado" placeholder="Parcela">
     </mat-form-field>
 
-<input type="file" [(ngModel)]="productAtual.imagem" multiple/>
+  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill">
+    Imagem: <input matInput [(ngModel)]="productAtual.imagem" placeholder="imagem">
+  </mat-form-field>
+
+
 
 <button mat-raised-button mat-icon-button color="primary" (click)="inserirOuAtualizarProduct()">
   <mat-icon *ngIf="inserindo">
@@ -48,4 +47,11 @@
 
 <span matTextPrefix>$&nbsp;</span>
     <span matTextSuffix>.00</span>
+
+    <input type="text"  multiple/>
+
+      <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
 -->
