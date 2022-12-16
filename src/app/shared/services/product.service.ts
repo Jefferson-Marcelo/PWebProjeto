@@ -10,17 +10,17 @@ import {Observable} from "rxjs";
 export class ProductService {
   //products: Array<Product>;
 
-  URL_PRODUCTS = 'http://localhost:8080/'
+  URL_PRODUCTS = 'http://localhost:8080'
 
   constructor(private httpClient: HttpClient) {
   }
 
   listar():Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.URL_PRODUCTS);
+    return this.httpClient.get<Product[]>(`${this.URL_PRODUCTS}/listarproduto`);
   }
 
   inserirProduct(product: Product): Observable<Product>{
-    return this.httpClient.post<Product>(this.URL_PRODUCTS, product);
+    return this.httpClient.post<Product>(`${this.URL_PRODUCTS}/cadastrarproduto`, product);
   }
 
   excluirProduct(id: string): Observable<object>{
@@ -32,6 +32,7 @@ export class ProductService {
   }
 
   atualizar(product: Product): Observable<Product> {
-    return this.httpClient.put<Product>(`${this.URL_PRODUCTS}/${product.id}`, product);
+    return this.httpClient.put<Product>(`${this.URL_PRODUCTS}/cadastrarproduto/${product.id}`, product);
   }
+
 }

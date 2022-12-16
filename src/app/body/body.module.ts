@@ -40,7 +40,7 @@ import {PipesModule} from "../shared/pipes/pipes.module";
     FileUploadModule,
     AppRoutingModule,
     PipesModule,
-    
+
   ]
 })
 export class BodyModule { }

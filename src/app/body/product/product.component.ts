@@ -15,12 +15,12 @@ export class ProductComponent implements OnInit {
   products: Product[];
 
 
-  constructor(private roteador: Router, private productFirestoreService: ProductFirestoreService) {
+  constructor(private roteador: Router, private productService: ProductService) {
     this.products = new Array<Product>()
   }
 
   ngOnInit(): void {
-    this.productFirestoreService.listar().subscribe(
+    this.productService.listar().subscribe(
       products => this.products = products
     );
   }
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
 
 
   removerProduct(productARemover: Product): void {
-    this.productFirestoreService.remover(productARemover.id).subscribe(
+    this.productService.excluirProduct(productARemover.id).subscribe(
       removido => {
         console.log(removido);
         const indxUsuario = this.products.findIndex(p => p.id === productARemover.id);
