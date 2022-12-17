@@ -2,6 +2,15 @@
 
 <div fxLayout="column" fxLayoutAlign="space-around center">
 
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0">
+    <span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
+  </mat-form-field>
+
+
   <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill" floatLabel="always">
     <mat-label>Nome</mat-label>
     <input matInput [(ngModel)]="productAtual.nome" >

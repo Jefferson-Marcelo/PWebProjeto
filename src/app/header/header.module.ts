@@ -8,6 +8,13 @@ import {MaterialExampleModule} from "../../material.module";
 import {AppRoutingModule} from "../app-routing.module";
 import { ShowHeaderComponent } from './show-header/show-header.component';
 import {FlexModule} from "@angular/flex-layout";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {FormsModule} from "@angular/forms";
+import {PipesModule} from "../shared/pipes/pipes.module";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
 
 
 
@@ -29,12 +36,12 @@ import {FlexModule} from "@angular/flex-layout";
 
   ],
     imports: [
-        CommonModule,
-        MatMenuModule,
-        MatListModule,
-        MaterialExampleModule,
-        AppRoutingModule,
-        FlexModule
+      CommonModule,
+      FlexModule,
+      AppRoutingModule,
+      MatIconModule,
+      MatInputModule,
+      MatMenuModule,
     ]
 })
 export class HeaderModule { }
