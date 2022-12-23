@@ -19,6 +19,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {BreadcrumbModule} from "angular-crumbs";
 import {BrowserModule} from "@angular/platform-browser";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -37,22 +38,23 @@ import {BrowserModule} from "@angular/platform-browser";
     ProductRegistrationComponent,
     ShowBodyComponent
   ],
-  imports: [
-    CommonModule,
-    HeaderModule,
-    MatCardModule,
-    MatIconModule,
-    AppRoutingModule,
-    PipesModule,
-    MatBadgeModule,
-    MatFormFieldModule,
-    FormsModule,
-    FlexModule,
-    MatInputModule,
-    MatListModule,
-    MatSidenavModule,
-    BrowserModule,
-    BreadcrumbModule
-  ]
+    imports: [
+        CommonModule,
+        HeaderModule,
+        MatCardModule,
+        MatIconModule,
+        AppRoutingModule,
+        PipesModule,
+        MatBadgeModule,
+        MatFormFieldModule,
+        FormsModule,
+        FlexModule,
+        MatInputModule,
+        MatListModule,
+        MatSidenavModule,
+        BrowserModule,
+        BreadcrumbModule,
+        MatCheckboxModule
+    ]
 })
 export class BodyModule { }

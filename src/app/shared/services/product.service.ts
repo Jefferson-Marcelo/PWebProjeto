@@ -8,7 +8,6 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
-  //products: Array<Product>;
 
   URL_PRODUCTS = 'http://localhost:8080'
 
