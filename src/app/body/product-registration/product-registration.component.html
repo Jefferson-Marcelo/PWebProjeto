@@ -1,36 +1,34 @@
 <app-show-header></app-show-header>
 
-<div fxLayout="column" fxLayoutAlign="space-around center">
+<div fxLayout="column" fxLayoutAlign="space-around center" class="formRegister">
 
+  <h1 *ngIf="inserindo">Cadastre a sua camisa</h1>
+  <h1 *ngIf="!inserindo">Edite a sua camisa</h1>
 
-  <mat-form-field appearance="fill" floatLabel="always">
-    <mat-label>Amount</mat-label>
-    <input matInput type="number" class="example-right-align" placeholder="0">
-    <span matTextPrefix>$&nbsp;</span>
-    <span matTextSuffix>.00</span>
-  </mat-form-field>
-
-
-  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill" floatLabel="always">
+  <mat-form-field  >
     <mat-label>Nome</mat-label>
     <input matInput [(ngModel)]="productAtual.nome" >
   </mat-form-field>
 
-  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center"  appearance="fill" floatLabel="always" >
-    Valor: <input matInput  [(ngModel)]="productAtual.valor" placeholder="Valor">
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" class="example-right-align" [(ngModel)]="productAtual.valor" placeholder="0">
+    <span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
   </mat-form-field>
 
-  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill">
-     Parcela: <input matInput [(ngModel)]="productAtual.parcelado" placeholder="Parcela">
+  <mat-form-field >
+    <mat-label>Quantas parcelas</mat-label>
+     <input matInput [(ngModel)]="productAtual.parcelado">
     </mat-form-field>
 
-  <mat-form-field fxLayout="row" fxLayoutAlign="space-around center" appearance="fill">
-    Imagem: <input matInput [(ngModel)]="productAtual.imagem" placeholder="imagem">
+  <mat-form-field >
+    <input matInput [(ngModel)]="productAtual.imagem" placeholder="Link da imagem">
   </mat-form-field>
-
 
 
 <button mat-raised-button mat-icon-button color="primary" (click)="inserirOuAtualizarProduct()">
+
   <mat-icon *ngIf="inserindo">
     add
   </mat-icon>
@@ -40,27 +38,4 @@
 </button><br>
 
 </div>
-
-<!--
-<input ng2FileSelect type="file" accept=".xml" [uploader]="uploader"/>
-
-<mat-form-field appearance="fill">
-  <mat-label>Outline form field</mat-label>
-  <input matInput placeholder="Placeholder">
-</mat-form-field>
-
-<button class="butoncus_sig" id="dnext" (click)="addPictures()">Submit</button>
-
-(change)="picked($event,1)"
-
-
-<span matTextPrefix>$&nbsp;</span>
-    <span matTextSuffix>.00</span>
-
-    <input type="text"  multiple/>
-
-      <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
 -->

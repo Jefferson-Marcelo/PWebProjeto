@@ -1,6 +1,5 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import {ProductRegistrationComponent} from "./body/product-registration/product-registration.component";
 import {ProductComponent} from "./body/product/product.component";
 import {ShowBodyComponent} from "./body/show-body/show-body.component";
@@ -15,6 +14,10 @@ const routes: Routes = [
     component: ProductRegistrationComponent
   },
   {
+    path: 'cadastrarproduto/:id',
+    component: ProductRegistrationComponent
+  },
+  {
     path: 'listarproduto',
     component: ProductComponent
   },
@@ -25,7 +28,7 @@ const routes: Routes = [
 
 ];
 
-//const routing: ModuleWithProviders = RouterModule.forRoot(routes) ;
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -28,7 +28,7 @@ export class ProductService {
   }
 
   pesquisarPorId(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.URL_PRODUCTS}/${id}`);
+    return this.httpClient.get<Product>(`${this.URL_PRODUCTS}/listarproduto/${id}`);
   }
 
   atualizar(product: Product): Observable<Product> {

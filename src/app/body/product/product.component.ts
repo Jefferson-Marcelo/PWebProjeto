@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {PRODUCTS} from "../../shared/model/PRODUCTS";
+
 import {Product} from "../../shared/model/product";
 import {ProductService} from "../../shared/services/product.service";
 import {Router} from "@angular/router";
-import {ProductFirestoreService} from "../../shared/services/product-firestore.service";
+
 
 @Component({
   selector: 'app-product',

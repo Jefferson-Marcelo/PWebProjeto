@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../shared/model/product";
-import { FileUploader } from 'ng2-file-upload';
+
 
 import {FormBuilder } from "@angular/forms";
 import {ProductService} from "../../shared/services/product.service";
-import {Observable} from "rxjs";
+
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductFirestoreService} from "../../shared/services/product-firestore.service";
+
 
 @Component({
   selector: 'app-product-registration',
@@ -16,7 +16,6 @@ import {ProductFirestoreService} from "../../shared/services/product-firestore.s
 export class ProductRegistrationComponent implements OnInit {
 
   productAtual: Product;
-
   inserindo = true;
   nomeBotao = 'Inserir';
 
@@ -28,9 +27,10 @@ export class ProductRegistrationComponent implements OnInit {
       if (idParaEdicao) {
         this.inserindo = false;
         this.nomeBotao = 'Atualizar';
-        const Encontrado = this.productService.pesquisarPorId(Number(idParaEdicao)).subscribe(
+        let Encontrado = this.productService.pesquisarPorId(Number(idParaEdicao)).subscribe(
           productEncontrado => this.productAtual = productEncontrado
         );
+        console.log(Encontrado)
       }
     }
 
@@ -38,6 +38,7 @@ export class ProductRegistrationComponent implements OnInit {
 
 
   ngOnInit() {
+
   }
 
   inserirOuAtualizarProduct() {
